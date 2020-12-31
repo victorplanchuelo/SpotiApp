@@ -17,12 +17,10 @@ export class SearchComponent {
 
   search(termino: string): void {
     this.loading = true;
-    this.spotify.getArtist(termino)
+    this.spotify.getArtists(termino)
       .subscribe( (data: any) => {
-        setTimeout(() => {
-          this.artists = data;
-          this.loading = false;
-        }, 1000);
+        this.artists = data;
+        this.loading = false;
       });
   }
 

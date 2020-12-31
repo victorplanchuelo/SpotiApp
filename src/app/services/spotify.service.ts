@@ -29,8 +29,12 @@ export class SpotifyService {
       .pipe( map( (data: any) => data.albums.items ));
   }
 
-  getArtist(searchText: string): Observable<any[]> {
+  getArtists(searchText: string): Observable<any[]> {
     return this.getQuery(`search?q=${searchText}&type=artist&limit=15`)
       .pipe(map( (data: any) => data.artists.items ));
+  }
+
+  getArtist(id: string): Observable<any[]> {
+    return this.getQuery(`artists/${id}`);
   }
 }
